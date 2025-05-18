@@ -11,64 +11,84 @@ interface TimelineEvent {
   title: string;
   description: string;
   image: string;
+  tagline : string;
 }
 
 const timelineEvents: TimelineEvent[] = [
   {
     year: '1997',
     title: 'The Day It All Began',
-    description: 'The day our lives changed forever. Surrounded by love and blessings, we promised each other forever in a beautiful ceremony.',
+    description:
+      'The day our lives changed forever. Surrounded by love and blessings, we promised each other forever in a beautiful ceremony.',
     image: images[0],
+    tagline: '💍 Two hearts. One promise. A lifetime to go.'
   },
   {
     year: '1998',
     title: 'Our First Anniversary',
-    description: '365 days of laughter, learning, late-night talks, and quiet moments. Our love felt stronger and our bond deeper.',
+    description:
+      '365 days of laughter, learning, late-night talks, and quiet moments. Our love felt stronger and our bond deeper.',
     image: images[1],
+    tagline: '📖 One year down, a love story just begun.'
   },
   {
     year: '2001',
-    title: 'Building Our Nest',
-    description: 'We spent these early years dreaming, working, and laying the foundation for the beautiful family we were about to become.',
+    title: 'The Beginning of Forever',
+    description:
+      'The universe gifted us a heartbeat beyond our own — the very first light of our family’s future. She was not just our daughter… she was our beginning. The little spark that turned a couple into a family.',
     image: images[2],
+    tagline: '“Before you, we had love. After you, we had everything.” 💖'
   },
   {
     year: '2005',
     title: 'The Day Our World Changed',
-    description: 'The moment we held you in our arms for the first time, everything changed. You filled our lives with love, purpose, and a kind of joy we never knew existed.',
+    description:
+      'The moment we held you in our arms for the first time, everything changed. You filled our lives with love, purpose, and a kind of joy we never knew existed.',
     image: images[3],
+    tagline: '🍼 Our arms were full, but our hearts overflowed.'
   },
   {
     year: '2007',
     title: 'A Decade of Us',
-    description: 'Ten years, countless memories. Through every smile and every tear, we stood strong — hand in hand.',
+    description:
+      'Ten years, countless memories. Through every smile and every tear, we stood strong — hand in hand.',
     image: images[4],
+    tagline: '🕊️ Ten years of love, laughter, and unshakable togetherness.'
   },
   {
     year: '2013',
     title: 'Family, Laughter & Legacy',
-    description: 'Our home echoed with laughter. Watching our kids grow, learning from each other — every day felt like a gift.',
+    description:
+      'Our home echoed with laughter. Watching our kids grow, learning from each other — every day felt like a gift.',
     image: images[5],
+    tagline: '🏡 In our home, love is loud and legacy is growing.'
   },
   {
     year: '2018',
     title: 'A New Chapter: Our Dream Home',
-    description: 'We built a home, not just with bricks, but with love, laughter, and dreams stitched into every corner.',
+    description:
+      'We built a home, not just with bricks, but with love, laughter, and dreams stitched into every corner.',
     image: images[6],
+    tagline: '🏠 Built from dreams. Held together by love.'
   },
   {
     year: '2022',
     title: 'Silver Jubilee of Love',
-    description: '25 years of togetherness — of growing, learning, and still looking at each other with the same love in our eyes.',
+    description:
+      '25 years of togetherness — of growing, learning, and still looking at each other with the same love in our eyes.',
     image: images[7],
+    tagline: '🥂 A silver celebration of a golden bond.'
   },
   {
     year: '2025',
     title: '28 Years of Forever',
-    description: 'Today we celebrate a journey full of love, shared dreams, and a life crafted together — beautifully, tenderly, endlessly.',
+    description:
+      'Today we celebrate a journey full of love, shared dreams, and a life crafted together — beautifully, tenderly, endlessly.',
     image: images[8],
+    tagline: '💫 28 years. One soul. Infinite love.'
   },
 ];
+
 
 interface CelebrationPageProps {
   onCelebrateAgain: () => void;
@@ -197,7 +217,8 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
                       </h4>
                       <p className="text-gray-600 text-sm md:text-base">{event.description}</p>
                       <div className="mt-4 italic text-sm text-gray-500">
-                        "{quotes[index % quotes.length]}"
+                        {/* "{quotes[index % quotes.length]}" */}
+                        <p className='text-gray-600 text-sm md:text-base'>{event.tagline}</p>
                       </div>
                     </motion.div>
                   </div>
