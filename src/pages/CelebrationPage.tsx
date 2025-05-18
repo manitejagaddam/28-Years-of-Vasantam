@@ -207,12 +207,12 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.4 }}
-                      className="rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300"
+                      className="rounded-xl overflow-hidden shadow-xl hover:-scale-y-110 transform hover:scale-110 transition-transform duration-300"
                     >
                       <img
                         src={event.image}
                         alt={event.title}
-                        className="w-full h-64 object-cover"
+                        className="w-full h-72 object-cover"
                       />
                     </motion.div>
                   </div>
