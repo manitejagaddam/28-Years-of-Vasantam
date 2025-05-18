@@ -70,7 +70,6 @@ const timelineEvents: TimelineEvent[] = [
   },
 ];
 
-
 interface CelebrationPageProps {
   onCelebrateAgain: () => void;
 }
@@ -91,7 +90,6 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
         height: window.innerHeight,
       });
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -100,7 +98,6 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -122,7 +119,6 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
     >
       <ParticleBackground />
 
-      {/* Background Slideshow */}
       <div className="fixed inset-0 z-0">
         {images.map((image, index) => (
           <motion.div
@@ -162,10 +158,10 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
           transition={{ duration: 0.8, delay: 0.5 }}
           className="py-6 px-4 text-center backdrop-blur-sm bg-white/30"
         >
-          <h1 className="text-4xl md:text-6xl font-dancing font-bold text-primary-600">
+          <h1 className="text-3xl md:text-5xl font-dancing font-bold text-primary-600">
             Our Journey Through Time
           </h1>
-          <p className="mt-2 font-playfair text-lg text-gray-800">
+          <p className="mt-2 font-playfair text-md md:text-lg text-gray-800">
             28 Years of Love, Laughter, and Beautiful Memories
           </p>
         </motion.header>
@@ -181,8 +177,8 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
                 transition={{ duration: 0.8 }}
                 className="relative"
               >
-                <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className="w-1/2 px-4">
+                <div className={`flex flex-col md:flex-row items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
@@ -196,16 +192,16 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
                       <h3 className="text-2xl font-dancing font-bold text-primary-600 mb-1">
                         {event.year}
                       </h3>
-                      <h4 className="text-xl font-playfair font-semibold text-gray-800 mb-2">
+                      <h4 className="text-lg md:text-xl font-playfair font-semibold text-gray-800 mb-2">
                         {event.title}
                       </h4>
-                      <p className="text-gray-600">{event.description}</p>
+                      <p className="text-gray-600 text-sm md:text-base">{event.description}</p>
                       <div className="mt-4 italic text-sm text-gray-500">
                         "{quotes[index % quotes.length]}"
                       </div>
                     </motion.div>
                   </div>
-                  <div className="w-1/2 px-4">
+                  <div className="w-full md:w-1/2 px-4">
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
@@ -222,7 +218,7 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
                   </div>
                 </div>
                 {index < timelineEvents.length - 1 && (
-                  <div className="absolute left-1/2 h-24 w-px bg-primary-300 -bottom-24 transform -translate-x-1/2" />
+                  <div className="hidden md:block absolute left-1/2 h-24 w-px bg-primary-300 -bottom-24 transform -translate-x-1/2" />
                 )}
               </motion.div>
             ))}
@@ -236,7 +232,7 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
           className="text-center py-12"
         >
           <motion.button
-            className={`relative bg-primary-500 hover:bg-primary-600 text-white font-dancing text-xl px-8 py-3 rounded-full shadow-lg transition-all duration-300 ${
+            className={`relative bg-primary-500 hover:bg-primary-600 text-white font-dancing text-lg md:text-xl px-6 md:px-8 py-3 rounded-full shadow-lg transition-all duration-300 ${
               isCelebrateHovered ? 'pl-12' : ''
             }`}
             whileHover={{ scale: 1.05 }}
@@ -262,7 +258,7 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ onCelebrateAgain }) =
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="py-4 text-center text-gray-600 font-playfair text-sm backdrop-blur-sm bg-white/30"
+          className="py-4 text-center text-gray-600 font-playfair text-xs md:text-sm backdrop-blur-sm bg-white/30"
         >
           <p>Made with ❤️ for Mom & Dad's 28th Anniversary</p>
         </motion.footer>
